@@ -17,6 +17,7 @@ body {
     border-radius: 8px;
     overflow: hidden;
     margin: 20px;
+    position: relative;
 }
 
 h1 {
@@ -27,14 +28,52 @@ h1 {
     text-align: center;
 }
 
-#search {
-    width: calc(100% - 40px);
+.controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     padding: 10px;
-    margin: 20px;
-    box-sizing: border-box;
+    background: #f8f9fa;
+}
+
+#search {
+    padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 16px;
+}
+
+#clearSearch {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#sortUsers, #filterCompany {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#spinner {
+    display: none;
+    margin: 20px auto;
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #007BFF;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 #userList {
@@ -52,6 +91,26 @@ h1 {
 
 #userList li:hover {
     background-color: #f9f9f9;
+}
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 10px 15px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
 }
 
 #userDetails {
@@ -82,11 +141,28 @@ h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+}
+
 /* Responsive Design */
 @media (max-width: 600px) {
     #search {
         width: calc(100% - 20px);
         margin: 10px;
+    }
+
+    .controls {
+        flex-direction: column;
     }
 
     #userList li {

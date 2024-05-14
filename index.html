@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Directory App: Built by ChatGPT-4o</title>
+    <title>User Directory App</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div id="app">
-        <h1>User Directory App</h1>
-        <input type="text" id="search" placeholder="Search users...">
+        <h1>User Directory</h1>
+        <div class="controls">
+            <input type="text" id="search" placeholder="Search users...">
+            <button id="clearSearch">Clear</button>
+            <select id="sortUsers">
+                <option value="name">Sort by Name</option>
+                <option value="email">Sort by Email</option>
+            </select>
+            <select id="filterCompany">
+                <option value="all">Filter by Company</option>
+            </select>
+        </div>
+        <div id="spinner" class="spinner"></div>
         <ul id="userList"></ul>
-        <div id="userDetails"></div>
+        <div id="pagination" class="pagination"></div>
+        <div id="userDetails" class="card"></div>
+        <button id="backToTop">Back to Top</button>
     </div>
     <script type="module" src="script.js"></script>
 </body>
-
 </html>
